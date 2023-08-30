@@ -9,17 +9,20 @@ const flowersByColor: Record<string, string>={
 }
 
 export default function Home() {
-    const [color, setColor] = React.useState<string>()
-        console.log(`current color is ${color}`)
+    const [colors, setColor] = React.useState<string[]>([])
+        console.log(`current color is ${colors}`)
+    console.log(colors)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <button>randomizer</button>
-        <div>{color}</div>
-        {color && <img src={flowersByColor[color]}/>}
+        <div>{colors}</div>
+        {colors && <img src={flowersByColor[colors[0]]}/>}
 
         {/*<img src="/flowers/blue.jpg" />*/}
-        <button className="px-6 py-3 rounded bg-red-500 text-white" onClick={()=>setColor("red")}>red</button>
-        <button className="px-6 py-3 rounded bg-blue-500 text-white" onClick={()=>setColor("blue")}>blue</button>
+        <button className="px-6 py-3 rounded bg-red-500 text-white" onClick={()=>setColor([...colors, "red"])}>red</button>
+        <button className="px-6 py-3 rounded bg-blue-500 text-white" onClick={()=>setColor([...colors, "blue"])}>blue</button>
+
+
 
 
         <fieldset>
