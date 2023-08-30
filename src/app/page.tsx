@@ -16,7 +16,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <button>randomizer</button>
         <div>{colors}</div>
-        {colors && <img src={flowersByColor[colors[0]]}/>}
+        {colors.length > 0 && <img src={flowersByColor[colors[0]]}/>}
 
         {/*<img src="/flowers/blue.jpg" />*/}
         <button className="px-6 py-3 rounded bg-red-500 text-white" onClick={()=>setColor([...colors, "red"])}>red</button>
